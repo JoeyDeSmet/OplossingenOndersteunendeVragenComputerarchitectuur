@@ -20,7 +20,7 @@ jobs:
 
       - name: Install Dependencies
         working-directory: ./docs
-        run: npm install.
+        run: npm install
 
       - name: Build dist
         working-directory: ./docs
