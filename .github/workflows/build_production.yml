@@ -27,7 +27,7 @@ jobs:
         run: npm run build
 
       - name: netlify.toml
-        run: cp netlify.toml ./docs/.vuepress/dist
+        run: cp netlify.toml ./docs/src/.vuepress/dist
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.2
