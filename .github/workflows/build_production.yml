@@ -1,0 +1,40 @@
+name: Build Vuepress
+
+on:
+  push:
+    brancher: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: ✨ Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.19.0
+
+      - name: Install Dependencies
+        working-directory: ./docs
+        run: npm install.
+
+      - name: Build dist
+        working-directory: ./docs
+        run: npm run build
+
+      - name: netlify.toml
+        run: cp netlify.toml ./docs/.vuepress/dist
+
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v1.2
+        with:
+          production-deploy: true
+          publish-dir: './docs/.vuepress/dist'
+          deploy-message: "${{ github.event.head_commit.message }}"
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
