@@ -33,7 +33,7 @@ jobs:
         uses: nwtgck/actions-netlify@v1.2
         with:
           production-deploy: true
-          publish-dir: './docs/.vuepress/dist'
+          publish-dir: './docs/src/.vuepress/dist'
           deploy-message: "${{ github.event.head_commit.message }}"
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
