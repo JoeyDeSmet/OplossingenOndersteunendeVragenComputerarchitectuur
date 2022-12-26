@@ -44,3 +44,35 @@ git push -u origin chapter6
     - A popup will be visable to Compare & pull request
     - Click the popup
     - Add a description and create pull request 
+
+## Adding a new chapter
+
+1. Create a folder in the /docs/src/chapters/ directory with the name of the chapter e.g. 'Chapter6'
+2. Add README.md file in folder and write text there
+3. Add a link to chapter in the main README.md file
+
+```text
+# Chapters
+
+- [Chapter 1: Introducing Computer Architecture](/chapters/chapter1/)
+- [Chapter 3: Processor Elements](/chapters/chapter3/)
+// Add other chapters
+```
+
+4. Edit the /docs/src/.vuepress/config.js file to include the chapter
+
+```js
+sidebar: {
+      '/chapters/': [
+        {
+          title: 'Chapters',
+          collapsable: false,
+          children: [
+            ['/chapters/chapter1/', 'Chapter1'],
+            ['/chapters/chapter3/', 'Chapter3'],
+            // Add chapter here
+          ]
+        },
+      ],
+    }
+```
