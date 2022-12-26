@@ -1,14 +1,20 @@
 const { description } = require('../../package')
 
 module.exports = {
-  /**
-   * Ref：https://v1.vuepress.vuejs.org/config/#title
-   */
-  title: 'Oplossingen ondersteunende vragen ComputerArchitectuur',
-  /**
-   * Ref：https://v1.vuepress.vuejs.org/config/#description
-   */
-  description: description,
+
+  locales: {
+    '/': {
+      lang: 'en',
+      title: 'Solutions supporting questions ComputerArchitecture',
+      description: description
+    },
+
+    '/dutch/': {
+      lang: 'nl',
+      title: 'Oplossingen ondersteunende vragen ComputerArchitectuur',
+      description: description
+    }
+  },
 
   /**
    * Extra tags to be injected to the page HTML `<head>`
@@ -28,30 +34,62 @@ module.exports = {
    */
   themeConfig: {
     repo: 'https://github.com/JoeyDeSmet/OplossingenOndersteunendeVragenComputerarchitectuur',
-    editLinks: false,
-    docsDir: '',
-    editLinkText: '',
-    lastUpdated: false,
     
-    nav: [
-      {
-        text: 'Chapters',
-        link: '/chapters/',
-      },
-    ],
+    locales: {
+      '/': {
+        editLinks: false,
+        docsDir: '',
+        editLinkText: '',
+        lastUpdated: false,
+        
+        nav: [
+          {
+            text: 'Chapters',
+            link: '/chapters/',
+          },
+        ],
 
-    sidebar: {
-      '/chapters/': [
-        {
-          title: 'Chapters',
-          collapsable: false,
-          children: [
-            ['/chapters/chapter1/', 'Chapter1'],
-            ['/chapters/chapter3/', 'Chapter3'],
-          ]
-        },
-      ],
-    }
+        sidebar: {
+          '/chapters/': [
+            {
+              title: 'Chapters',
+              collapsable: false,
+              children: [
+                ['/chapters/chapter1/', 'Chapter1'],
+                ['/chapters/chapter3/', 'Chapter3'],
+              ]
+            },
+          ],
+        }
+      },
+
+      '/dutch/': {
+        editLinks: false,
+        docsDir: '',
+        editLinkText: '',
+        lastUpdated: false,
+
+        nav: [
+          {
+            text: 'Chapters',
+            link: '/dutch/chapters/',
+          },
+        ],
+
+        sidebar: {
+          '/dutch/chapters/': [
+            {
+              title: 'Chapters',
+              collapsable: false,
+              children: [
+                ['/dutch/chapters/chapter1/', 'Chapter1'],
+                ['/dutch/chapters/chapter3/', 'Chapter3'],
+              ]
+            },
+          ],
+        }
+      }
+    },
   },
 
   /**

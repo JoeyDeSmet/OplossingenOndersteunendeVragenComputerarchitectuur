@@ -28,7 +28,8 @@ git fetch upstream
 git checkout -b chapter6 upstream/main
 ```
 
-5. Make your changes
+5. Make your changes in english or dutch
+    - For dutch make changes in /dutch folder english is default folder
 
 6. Add, commit, and push your changes
 
