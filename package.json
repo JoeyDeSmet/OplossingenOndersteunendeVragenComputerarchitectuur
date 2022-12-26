@@ -1,0 +1,14 @@
+{
+  "name": "oplossingenondersteunendevragen",
+  "version": "1.0.0",
+  "description": "Oplossing ondersteunende vragen computerarchitectuur",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "author": "Joey De Smet",
+  "license": "ISC",
+  "devDependencies": {
+    "vuepress": "^2.0.0-beta.59"
+  }
+}

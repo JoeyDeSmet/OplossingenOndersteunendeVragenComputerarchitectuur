@@ -18,7 +18,7 @@ The `Von Neumann architecture` is a centralized design that consists of four key
 - Input/output equipment
 - A bus that connects these components
 
-![VonNeumanDiagram](../../img/VonNeumann.jpg)
+![VonNeumanDiagram](/img/VonNeumann.jpg)
 
 In the Von Neumann architecture, the `memory` is used to store both programs and data. 
 The `processor` reads instructions from the memory and executes them. The `input/output equipment` is used to read data from external sources and to send data to external devices. 
@@ -45,7 +45,7 @@ Each segment has a specific starting address and a length, and the segment regis
 
 The processor can than use the segment register adn an offset to calculate the actual memory address taht is needs to access.
 
-![Memory segmentation](../../img/memotySegmentation.png)
+![Memory segmentation](/img/memotySegmentation.png)
 
 ##### Example
 
@@ -55,7 +55,7 @@ If the segment register contains the value `0x1000` and the offset is `0x0100`, 
 
 `Moore's Law` is a prediction that the number of transistors that could be placed on a computer chip would double approximately every two years.
 
-![MoorseLaw](../../img/moorseLaw.png)
+![MoorseLaw](/img/moorseLaw.png)
 
 #### Limitations
 

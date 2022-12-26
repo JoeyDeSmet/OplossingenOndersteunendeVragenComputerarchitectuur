@@ -16,24 +16,22 @@ jobs:
       - name: ✨ Setup Node.js environment
         uses: actions/setup-node@v3
         with:
-          node-version: 16.19.0
+          node-version: 18.x
 
       - name: Install Dependencies
-        working-directory: ./docs
         run: npm install
 
       - name: Build dist
-        working-directory: ./docs
-        run: npm run build
+        run: npm run docs:build
 
       - name: netlify.toml
-        run: cp netlify.toml ./docs/src/.vuepress/dist
+        run: cp netlify.toml ./docs/.vuepress/dist
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.2
         with:
           production-deploy: true
-          publish-dir: './docs/src/.vuepress/dist'
+          publish-dir: './docs/.vuepress/dist'
           deploy-message: "${{ github.event.head_commit.message }}"
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}

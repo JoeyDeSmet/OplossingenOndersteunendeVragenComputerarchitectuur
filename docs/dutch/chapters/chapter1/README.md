@@ -18,7 +18,7 @@ De `Von Neumann architectuur` is een gecentraliseerd ontwerp dat bestaat uit vie
 - Invoer/uitvoer apparatuur
 - Een bus die deze componenten verbindt
 
-![VonNeumanDiagram](../../../img/VonNeumann.jpg)
+![VonNeumanDiagram](/img/VonNeumann.jpg)
 
 In de Von Neumann architectuur wordt het `geheugen` gebruikt om zowel programma's als gegevens op te slaan. 
 De `processor` leest instructies uit het geheugen en voert ze uit. De `input/output apparatuur` wordt gebruikt om gegevens van externe bronnen te lezen en gegevens naar externe apparaten te sturen. 
@@ -45,7 +45,7 @@ Elk segment heeft een specifiek startadres en een lengte, en het segmentregister
 
 De processor kan dan het segmentregister en een offset gebruiken om het werkelijke geheugenadres te berekenen waartoe hij toegang moet krijgen.
 
-![Geheugensegmentatie](../../../img/memotySegmentation.png)
+![Geheugensegmentatie](/img/memotySegmentation.png)
 
 ##### Voorbeeld
 
@@ -55,7 +55,7 @@ Als het segment register de waarde `0x1000` bevat en de offset is `0x0100`, dan 
 
 De Wet van Moore is een voorspelling dat het aantal transistors op een computerchip ongeveer elke twee jaar zou verdubbelen.
 
-![MoorseLaw](../../../img/moorseLaw.png)
+![MoorseLaw](/img/moorseLaw.png)
 
 #### Beperkingen
 

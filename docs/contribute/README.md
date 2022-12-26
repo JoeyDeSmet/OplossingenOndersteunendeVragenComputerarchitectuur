@@ -1,26 +1,8 @@
-# OplossingenOndersteunendeVragenComputerarchitectuur
-[![Build Vuepress](https://github.com/JoeyDeSmet/OplossingenOndersteunendeVragenComputerarchitectuur/actions/workflows/build_production.yml/badge.svg)](https://github.com/JoeyDeSmet/OplossingenOndersteunendeVragenComputerarchitectuur/actions/workflows/build_production.yml) [![Netlify Status](https://api.netlify.com/api/v1/badges/dc958857-f9f0-42db-8cbb-efd12137ec65/deploy-status)](https://app.netlify.com/sites/computerarchitectuur-oplossingen/deploys)
-
-New changes will automaticly be build and hosted on: https://computerarchitectuur-oplossingen.netlify.app/
-
-## Running on local machine
-
-Install the denpendancies.
-
-```bash
-npm install
-```
-
-Run locat development server.
-
-```bash
-npm run docs:dev
-
 ## How to contribute
 
-1. Fork this repository
+1. Fork the repository [GitHub](https://github.com/JoeyDeSmet/OplossingenOndersteunendeVragenComputerarchitectuur)
 
-![Fork](./img/Fork.png)
+![Fork](/img/Fork.png)
 
 2. Clone the repository to your local machine
 
