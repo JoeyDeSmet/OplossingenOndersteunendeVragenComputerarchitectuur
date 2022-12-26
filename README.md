@@ -1,5 +1,7 @@
 # OplossingenOndersteunendeVragenComputerarchitectuur
-[![Build Vuepress](https://github.com/JoeyDeSmet/OplossingenOndersteunendeVragenComputerarchitectuur/actions/workflows/build_production.yml/badge.svg)](https://github.com/JoeyDeSmet/OplossingenOndersteunendeVragenComputerarchitectuur/actions/workflows/build_production.yml)
+[![Build Vuepress](https://github.com/JoeyDeSmet/OplossingenOndersteunendeVragenComputerarchitectuur/actions/workflows/build_production.yml/badge.svg)](https://github.com/JoeyDeSmet/OplossingenOndersteunendeVragenComputerarchitectuur/actions/workflows/build_production.yml) [![Netlify Status](https://api.netlify.com/api/v1/badges/dc958857-f9f0-42db-8cbb-efd12137ec65/deploy-status)](https://app.netlify.com/sites/computerarchitectuur-oplossingen/deploys)
+
+New changes will automaticly be build and hosted on: https://computerarchitectuur-oplossingen.netlify.app/
 
 ## How to contribute
 
