@@ -15,12 +15,13 @@ Run locat development server.
 
 ```bash
 npm run docs:dev
+```
 
 ## How to contribute
 
 1. Fork this repository
 
-![Fork](./img/Fork.png)
+![Fork](./docs/.vuepress/public/img/Fork.png)
 
 2. Clone the repository to your local machine
 
