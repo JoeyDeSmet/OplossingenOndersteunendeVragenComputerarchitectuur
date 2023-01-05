@@ -1,0 +1,35 @@
+data: $10 ; Address of data
+data_lenght: #$05 ; Lenght of data including checksum
+sum: $14 ; Location of data checksum
+
+LDX data_lenght
+; WTF
+data_prep:
+  LDA #$01
+  STA data, X
+  DEX
+  CPX #$00
+  BNE data_prep
+
+
+LDX data_lenght ; Load data_lenght into X register
+DEX ; Decrement X register
+
+CLC ; Clear carry flag
+
+loop:
+  LDA data, X ; Load in next data byte
+  ADC sum ; Add sum to A register
+  STA sum ; store back at sum address
+
+  DEX ; Decrement te X register
+  CPX #$ff ; Check if X register == 0xFF
+  BNE loop ; Break if X register == 0xFF
+
+; Calculate two's compliment
+SEC ; Set carry flag
+LDA #$00
+SBC sum
+
+
+
