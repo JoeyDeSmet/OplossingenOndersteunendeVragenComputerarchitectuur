@@ -60,3 +60,56 @@ In this approach a `special controller` is used to transfer data directly betwee
 - Implement this checksum algorithm using 6502 assembly language.
 - The data bytes begin at the memory location stored in address $10-$11 and the number of bytes (including the checksum byte) is provided as an input in the X register.
 - Set the A register to 1 if the checksum is valid, and to 0 if it is invalid.
+
+```assembly
+; 6502 asambly
+
+LDX #$05 ; Data lenght is 5
+
+; Set data to 0xea
+data_prep:
+  LDA #$EA
+  STA $10, X
+  
+  DEX ; Decrement X register
+  CPX #$FF
+  BNE data_prep
+  
+LDX #$05 ; Data lenght is 5
+
+LDA #$6E ; Store actual checksum
+STA $10, X
+
+checksum:
+  DEX ; Decrement X because last byte is the checksum
+
+  sum_loop:
+    CLC ; Clear the carry flag
+    LDA $10, X
+    ADC $20 ; Add value stored at address $20 to A register
+    STA $20 ; Store sum at address $20
+    
+    DEX
+    CPX #$FF
+    BNE sum_loop
+
+  ; Two's compilent
+  SEC ; Set carry flag
+  LDA #$00
+  SBC $20 ; Subtract with carry
+  STA $20 ; Store two's compilment at address $20
+
+LDX #$05
+LDA $10, X
+CMP $20
+
+BNE end
+JMP checksum_succes
+
+end:
+  JMP end
+
+checksum_succes:
+  LDA #$01
+  JMP end  
+```

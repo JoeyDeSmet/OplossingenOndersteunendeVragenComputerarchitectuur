@@ -1,35 +1,53 @@
-data: $10 ; Address of data
-data_lenght: #$05 ; Lenght of data including checksum
-sum: $14 ; Location of data checksum
+; 6502 asambly
 
-LDX data_lenght
-; WTF
+LDX #$05 ; Data lenght is 5
+
+; Set data to 0xea
 data_prep:
-  LDA #$01
-  STA data, X
-  DEX
-  CPX #$00
+  LDA #$EA
+  STA $10, X
+  
+  DEX ; Decrement X register
+  CPX #$FF
   BNE data_prep
+  
+LDX #$05 ; Data lenght is 5
 
+LDA #$6E ; Store actual checksum
+STA $10, X
 
-LDX data_lenght ; Load data_lenght into X register
-DEX ; Decrement X register
+checksum:
+  DEX ; Decrement X because last byte is the checksum
 
-CLC ; Clear carry flag
+  sum_loop:
+    CLC ; Clear the carry flag
+    LDA $10, X
+    ADC $20 ; Add value stored at address $20 to A register
+    STA $20 ; Store sum at address $20
+    
+    DEX
+    CPX #$FF
+    BNE sum_loop
 
-loop:
-  LDA data, X ; Load in next data byte
-  ADC sum ; Add sum to A register
-  STA sum ; store back at sum address
+  ; Two's compilent
+  SEC ; Set carry flag
+  LDA #$00
+  SBC $20 ; Subtract with carry
+  STA $20 ; Store two's compilment at address $20
 
-  DEX ; Decrement te X register
-  CPX #$ff ; Check if X register == 0xFF
-  BNE loop ; Break if X register == 0xFF
+LDX #$05
+LDA $10, X
+CMP $20
 
-; Calculate two's compliment
-SEC ; Set carry flag
-LDA #$00
-SBC sum
+BNE end
+JMP checksum_succes
+
+end:
+  JMP end
+
+checksum_succes:
+  LDA #$01
+  JMP end  
 
 
 

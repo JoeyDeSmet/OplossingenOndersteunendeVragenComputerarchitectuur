@@ -81,7 +81,7 @@ GPU `Graphics Processing Unit`, is a specialized type of processor that is desig
 Write 6502 assembly code to store two 16-bit values at addresses $00-$01 and $02-$03.
 Add these two 16-bit values and store the result at addresses $04-$05. Keep in mind the carry.
 
-```asm
+```assembly
 ; 6502 Asambly
 
 ; Storing first number
@@ -112,7 +112,7 @@ CLC
 write 6502 assembly code to calculate the difference of two 16-bit values stored at
 addresses $00-$01 and $02-$03. Store the result at addresses $04-$05. Take into account the borrow.
 
-```asm
+```assembly
 LDA #$00   ; Load the least significant byte of the first value
 STA $00    ; Store it at address $00
 LDA #$78   ; Load the most significant byte of the first value
@@ -136,7 +136,7 @@ Write 6502 assembly code to store two 32-bit values at addresses $00-$03 and $04
 Add the two 32-bit values via a loop/jump constructive, which iterates through all the bytes. Store the
 result at addresses $08-$0B. Keep in mind the carry.
 
-```asm
+```assembly
 ; 6502 Assambly
 
 ; Number 1
