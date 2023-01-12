@@ -12,5 +12,3 @@ actions:
 
 footer: Made by Joey De Smet with ❤️
 ---
-
-

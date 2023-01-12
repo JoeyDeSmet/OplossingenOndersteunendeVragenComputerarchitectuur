@@ -8,6 +8,7 @@ export const sidebarEn: SidebarConfig = {
       children: [
         '/chapters/chapter1/',
         '/chapters/chapter3/',
+        '/chapters/chapter5/',
       ]
     }
 
