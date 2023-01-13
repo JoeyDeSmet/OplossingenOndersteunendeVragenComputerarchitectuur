@@ -9,6 +9,7 @@ export const sidebarEn: SidebarConfig = {
         '/chapters/chapter1/',
         '/chapters/chapter3/',
         '/chapters/chapter5/',
+        '/chapters/chapter6/',
       ]
     }
 

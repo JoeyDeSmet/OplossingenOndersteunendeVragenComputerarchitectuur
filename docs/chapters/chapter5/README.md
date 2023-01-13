@@ -1,43 +1,43 @@
 # Chapter 5: Hardware-Software Interface
 
-### What do the abbreviations PCI and PCIe mean?
+## What do the abbreviations PCI and PCIe mean?
 
 - `PCI`: Peripheral Component Interconnect
 - `PCIe`: Peripheral Component Interconnect Express
 
-### Briefly explain the following features that apply to PCI/PCIe
+## Briefly explain the following features that apply to PCI/PCIe
 
-#### Hot plugging
+### Hot plugging
 
 `Hot plugging` refers to the ability to `add or remove` devices from a computer system `without having to pawer down` the system.
 
-#### Automated configuration
+### Automated configuration
 
 `Automated configuration` refers to the ability of the system to `automatically` configure and set up new devices that are added to the system, without manual intervention. 
 
-#### Bulk DMA transfer
+### Bulk DMA transfer
 
 Bulk `DMA (Direct Memory Access)` transfer refers to a feature that allows data to be `transferred directly` between devices and system memory, `bypassing the CPU` and reducing the workload on the CPU.
 
-#### Multi-lane serial connections
+### Multi-lane serial connections
 
 `Multi-lan serial connections` refer to the use of multiple `parallel data paths` between devices, rather than a single parallel data path. This allows for faster data transfer rates. 
 
-#### Root Complex
+### Root Complex
 
 `Root complex` refers to the `central hub` of a PCIe system that connects the CPU, memory and other devices. It acts as a bridge between the CPU and other devices on the bus.
 
-#### End Point
+### End Point
 
 `End point` refers to a device that is `connected to the Root complex` and is able to initiate transactions on the bus. Examples of `End point Devices` include `graphics card`, `storage devices` and `network interfaces`.
 
-### What minimum features should a Linux device driver have? 
+## What minimum features should a Linux device driver have? 
 
 - **Initialization and termination**
 - **Initialization and termination of communication sessions**
 - **Read and Write**
 
-#### One concrete example is the mydevice_init() function. Complete the functions further and explain the purpose of each.
+### One concrete example is the mydevice_init() function. Complete the functions further and explain the purpose of each.
 
 - `int mydevice_init(void)`: Initialization of the device. The operating system calls this function to `initialize` the device at `sytem startup` or at a later time if the device is connected by hot plugging. The function return and integer status code, indicating if the initialization was successful or not.
 
@@ -51,7 +51,7 @@ Bulk `DMA (Direct Memory Access)` transfer refers to a feature that allows data 
 
 - `ssize_t mydevice_write(struct file* filp, const char* buf, size_t count, loff_t* f_pos)`: This function writes to the device, it has almost the same parameters as read except for the `buf` which is declared `const`, because this function reads from the buf and writes to the file or device.
 
-### Explain the following abbreviations and explain the terms:
+## Explain the following abbreviations and explain the terms:
 
 - **BIOS**: `Basic Input/Output System` is firmware that is stored on the motherboard of a computer. It is responsible for performing `basic input/output` function on the computer, and providing an `interface with the hardware`. 
 
@@ -59,21 +59,21 @@ Bulk `DMA (Direct Memory Access)` transfer refers to a feature that allows data 
 
 - **UEFI**: `Unified Extensible Firmware Interface` It is the improvement of the `BIOS` for x86 and x86-64 bases PCs. `UEFI` is designed to `improve boot time`, support for `larger hard drives`, and improve `security features`.
 
-### What are the limitations of MBR partitions and explain how UEFI partitions solve these limitations?
+## What are the limitations of MBR partitions and explain how UEFI partitions solve these limitations?
 
-#### MBR (Master Boot Record) limitations
+### MBR (Master Boot Record) limitations
 
 - Maximum of `four primary partitions`.
 - They use `32-bit logical block addressing (LBA)`, which limit the partition tot a maximum of `2TB`.
 - `No security boot` feature.
 
-#### UEFI solution
+### UEFI solution
 
 - Using `GPT (GUID Partition Table)` which support up to `128 partitions` and allows for `larger partition` sizes.
 - Using `64-bit LBA`, which remover the 2TB limit on partition sizes.
 - Support for `Secure Boot`, which prevent the loading of unsigned or malicious code during the boot process.
 
-### What tasks should the operating system kernel perform during the boot process?
+## What tasks should the operating system kernel perform during the boot process?
 
 Following the `POST` and `device configuration`, the BIOS begins the `boot process`:
 
@@ -82,28 +82,28 @@ Following the `POST` and `device configuration`, the BIOS begins the `boot proce
 - The BIOS firmware has completed execution an is no longer active.
 - The `boot loader` initiates the process of `loading` and starting the `OS`.
 
-### What are the differences between threads and processes?
+## What are the differences between threads and processes?
 
 - `Threads` `share` the same `memory space` with other threads in the same process, while `processes` have their own `independent memory space`.
 - `Threads` are `lightweight` and have less overhead than processes, as the share the same memory space an system resources.
 - Threads within a process can communicate witch each other easily as they share the same memory space. Processes have to us `inter-process communication (IPC)` mechanisms to communicate with each other.
 
-#### Summary 
+### Summary 
 
 `Threads` are `lightweight` and have `less overhead`, `share memory and resources`, and can `communicate easily` witch each other. 
 
 `Processes` are isolated, have `more overhead`, have their `own memory and resources`, and need to use `IPC mechanisms` to communicate.
 
-### What are the four states that a process can assume and explain each state succinctly?
+## What are the four states that a process can assume and explain each state succinctly?
 
 - **Running**: The process is currently being executed by the CPU.
 - **Ready**: The process is ready to be executed by the CPU, but is currently waiting for the CPU to become available.
 - **Blocked**: The process is unable to continue execution because it is waiting for a resource such as I/O or synchronization event.
 - **Terminated**: The process has completed execution or has been terminated by the OS.
 
-### What do the abbreviations TCB and PCB mean and briefly explain their function?
+## What do the abbreviations TCB and PCB mean and briefly explain their function?
 
-#### TCB 
+### TCB 
 
 `Thread Control Block`, it's a data structure used by an OS to keep track of the resources and the state of a thread. The TCB contains information such as:
 
@@ -113,7 +113,7 @@ Following the `POST` and `device configuration`, the BIOS begins the `boot proce
 - Stack pointer
 - Any other information needed to manage the thread
 
-#### PCB
+### PCB
 
 `Process Control Block`, it's a data structure used by an OS to keep track of the resources and the state of a process. The PCB contains information such as:
 
@@ -123,34 +123,34 @@ Following the `POST` and `device configuration`, the BIOS begins the `boot proce
 - Memory management information
 - Any other information needed to manage the process
 
-### Name four scheduling algorithms and discuss the properties of each (non-preemptive/preemptive?, process priority?, ...)
+## Name four scheduling algorithms and discuss the properties of each (non-preemptive/preemptive?, process priority?, ...)
 
-#### First-Come, First-Served (FCFS)
+### First-Come, First-Served (FCFS)
 
 FCFS is a `non-preemptive algorithm`, the process that arrives first is executed first as the name suggests. It is easy to implement, but it is not efficient as it can lead to lang wait times for processes that arrive later.
 
-#### Shortest Job First (SJF)
+### Shortest Job First (SJF)
 
 SJF is an `non-preemptive algorithm`, the process with the shortest execution time is executed first. It is efficient but can be difficult to predict the execution time of a process.
 
-#### Round Robin (RR)
+### Round Robin (RR)
 
 Round Robin is a `preemptive algorithm`. In this algorithm each process is given an fixed time slice (time quantum) and is executed for that amount of time. If a process is not completed in its time quantum, it is moved to the back of the queue and the next process is executed. It is efficient for time-sharing systems and prevents a process from monopolizing the CPU.
 
 ![Round robin graph](/img/round-robin.png)
 
-#### Priority Scheduling
+### Priority Scheduling
 
 Priority scheduling is a `non-preemptive algorithm` or a `preemptive algorithm`. In this algorithm, each process is assigned a priority and the process with the highes priority is executed first. If two processes have the same priority it is scheduled according to the other scheduling algorithm (FCFS or RR). It is efficient but can lead to starvation of lower-priority processes.
 
-### What is a symmetric multiprocessor architecture and explain the terms SIMD and MIMD?
+## What is a symmetric multiprocessor architecture and explain the terms SIMD and MIMD?
 
 A `Symmetric MultiProcessor (SMP)` architecture is a computer architecture where multiple processors are connected to a single shared main memory. All processors have equal access to the shared memory and can run any task.
 
-#### SIMD (Single Instruction Multiple Data)
+### SIMD (Single Instruction Multiple Data)
 
 SIMD is a type of computer architecture where multiple processing element perform the same operation on multiple data points simultaneously. In SIMD all processing elements are executing the same instruction at the same time on different data.
 
-#### (Multiple Instructions Multiple Data)
+### (Multiple Instructions Multiple Data)
 
 MIMD is a type of computer architecture where multiple processing elements perform different operations of different data simultaneously. In MIMD different processing elements can be executing different instructions on different data.

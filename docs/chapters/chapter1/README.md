@@ -1,15 +1,15 @@
 # Chapter 1: Introducing Computer Architecture
 
-### Explain some technological problems that Charles Babbage experienced when designing his Analytical Engine
+## Explain some technological problems that Charles Babbage experienced when designing his Analytical Engine
 
 - The technology at the time was not sufficient to produce the complex components.
 - Financing was difficult.
 
-### What does ENIAC stand for and discuss the Von Neumann architecture briefly?
+## What does ENIAC stand for and discuss the Von Neumann architecture briefly?
 
 ENIAC `Electronic Numerical Integrator And Computer`, the first programmable general-purpose electronic computer.
 
-#### Von Neuman architectuur
+### Von Neuman architectuur
 
 The `Von Neumann architecture` is a centralized design that consists of four key components:
 
@@ -24,20 +24,20 @@ In the Von Neumann architecture, the `memory` is used to store both programs and
 The `processor` reads instructions from the memory and executes them. The `input/output equipment` is used to read data from external sources and to send data to external devices. 
 The `bus` connects these components to each other and enables the processor to read data and instructions from the memory and send them to the input/output equipment.
 
-### The microprocessor of the original IBM PC is the Intel 8088, which belongs to the Intel 80x86 microprocessor familybelongs. These i80x86 microprocessors operate with a segmented memory model:
+## The microprocessor of the original IBM PC is the Intel 8088, which belongs to the Intel 80x86 microprocessor familybelongs. These i80x86 microprocessors operate with a segmented memory model:
 
-#### What is a segment?
+### What is a segment?
 
 A `segment` is a portion of the available memory that is assigned a specific purpose of funtion.
 On the `Intel 80x86` microprocessor family, segment where used to divide the memory into logical blocks, each of which could be accessed by a specific segment register.
 
-#### What are the advantages of the segmented memory model?
+### What are the advantages of the segmented memory model?
 
 - Allows **processor** to `access more memory` than it could directly address using it's instruction set.
 - Improve`organisation of memory`, by allowing different segments to be used for different purposes.
 - Inprove **processor** `performance`, by allowing it to access memory more quickly.
 
-#### Despite the 16-bit architecture of the registers, the addressable memory space is 1 MB. Explain.
+### Despite the 16-bit architecture of the registers, the addressable memory space is 1 MB. Explain.
 
 In the `segmented memory model`, the processeor uses a 16-bit segment register to keep track of the location of different segments in memory. 
 
@@ -47,37 +47,37 @@ The processor can than use the segment register adn an offset to calculate the a
 
 ![Memory segmentation](/img/memotySegmentation.png)
 
-##### Example
+#### Example
 
 If the segment register contains the value `0x1000` and the offset is `0x0100`, the processor can access the memory address `0x1100` (0x1000 + 0x0100). In this way, the processor can access more memory than it could by directly acessing memory using its 16-bit instruction set.
 
-### Describe Moore's Law. Discuss some limits that the linearization of this law does not support.
+## Describe Moore's Law. Discuss some limits that the linearization of this law does not support.
 
 `Moore's Law` is a prediction that the number of transistors that could be placed on a computer chip would double approximately every two years.
 
 ![MoorseLaw](/img/moorseLaw.png)
 
-#### Limitations
+### Limitations
 
 - There are `physical limits` to how small a transistor can get
 - More prone to `overheating`
 - The `cost` of designing and producing chips increased significantly as there complexity has increased
 
-### Explain the abbreviations CPU and GPU and explain some essential differences between the operation of a CPU and a GPU.
+## Explain the abbreviations CPU and GPU and explain some essential differences between the operation of a CPU and a GPU.
 
 CPU `Central Processing Unit`, is the primary processing unit of a computer. It is responsable for executing most of the instructions that the computer receives. 
 
 GPU `Graphics Processing Unit`, is a specialized type of processor that is designed sepecifically for handeling graphics-related tasks.
 
-#### Differences
+### Differences
 
 - **Architecture**: `CPU's` are typaclly designed with a single core that can execute one instruction at a time, whereas `GPU's` have many smaller cores that can execute multiple instruction simultaneously.
 - **Speed**: `CPU's` ar generaly faster in executing single instructions than a `GPU`, but `GPU's` are able to process many instructions simultaneously.
 - **Power consumption**: Because `GPU's` have many smaller cores, they typacly consume more power than `CPU's`.
 
-### Exersices on 6502 instruction set
+## Exersices on 6502 instruction set
 
-#### Exercise 1
+### Exercise 1
 Write 6502 assembly code to store two 16-bit values at addresses $00-$01 and $02-$03.
 Add these two 16-bit values and store the result at addresses $04-$05. Keep in mind the carry.
 
@@ -108,7 +108,7 @@ STA $04
 CLC
 ```
 
-#### Exercise 2
+### Exercise 2
 write 6502 assembly code to calculate the difference of two 16-bit values stored at
 addresses $00-$01 and $02-$03. Store the result at addresses $04-$05. Take into account the borrow.
 
@@ -131,7 +131,7 @@ SBC $03   ; Subtract the most significant byte of the second value
 STA $05   ; Store the result in the most significant byte of the result
 ```
 
-#### Exercise 3
+### Exercise 3
 Write 6502 assembly code to store two 32-bit values at addresses $00-$03 and $04-$07.
 Add the two 32-bit values via a loop/jump constructive, which iterates through all the bytes. Store the
 result at addresses $08-$0B. Keep in mind the carry.

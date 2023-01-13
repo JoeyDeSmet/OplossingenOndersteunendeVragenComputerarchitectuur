@@ -1,12 +1,12 @@
 # Chapter 3: Processor Elements
 
-### Explain the abbreviation CISC and the abbreviation RISC and name the differences between the two computer architectures.
+## Explain the abbreviation CISC and the abbreviation RISC and name the differences between the two computer architectures.
 
 CISC `Complex Instruction Set Comuting`, is a computer architecture that utilizes a large number of complex instructions to perform tasks. The instructions in a CISC architecture are designed to be `flexible` and capable of performing a `wide variety` of operations, making them well-suited for high-level programming languages like `C` and `FORTRAN`.
 
 RISC `Reduced Instruction Set Computing`, is a computer architecture that utilizes a `smaller` set of `simpler` instructions to perform tasks. The instruction in a RISC architecture are designed to be `very fast` and `efficient`, but they may `not be as flexible` as those in a CISC architecture.
 
-### Explain the operation of the 6502 stacking instructions PHA and PLA. The operation of the 6502 stack is according to the LIFO principle and what is its relation to the S-register and processor flags?
+## Explain the operation of the 6502 stacking instructions PHA and PLA. The operation of the 6502 stack is according to the LIFO principle and what is its relation to the S-register and processor flags?
 
 The `6502 microprocessor` has a stack that is used to store `temporary data`, such as return addressed and intermediate results. The stack operates according to the `LIFO (Last In, First Out)` princable.
 
@@ -14,9 +14,9 @@ The **PHA** `Push Accumulator` instruction is used to push the contents of the `
 
 The **PLA** `Pull Accumulator` instruction is used to pop a value off the stack an load it into the `accumulator`. After execution of this instruction the value at the top is copied to the `accumulator`, and the `stack pointer` is than incremented.
 
-### Explain the difference between a maskable and non-maskable interrupt. What are the addresses of the interrupt service routines of both interrupts and which interrupt is level- or edge-sensitive?
+## Explain the difference between a maskable and non-maskable interrupt. What are the addresses of the interrupt service routines of both interrupts and which interrupt is level- or edge-sensitive?
 
-#### Maskable interupt (IRQ)
+### Maskable interupt (IRQ)
 
 A `maskable interupt (IRQ)` is a interupt that can be `enabled or disabled` by the programmer. When the interupt enable flag is set, the processor will respond to an IRQ by saving it's current state and executing an `interupt service routine (ISR)`.
 
@@ -24,7 +24,7 @@ The interupt vector for maskable interupts is located at addresses `$FFFE-$FFFF`
 
 `Level sensitive`.
 
-#### Non-maskable interupt (NMI)
+### Non-maskable interupt (NMI)
 
 A `non-maskable interupt (NMI)` is the same as a maskable interupt but that it cannot be disables by the programmer.
 
@@ -32,21 +32,21 @@ The interupt vector for non-maskable interupts is located at addresses `$FFFA-$F
 
 `Edge-sensitive` that triggers on the falling edge of the signal.
 
-### Explain the 3 ways of I/O processing and what are the differences between port-mapped I/O and memory-mapped I/O?
+## Explain the 3 ways of I/O processing and what are the differences between port-mapped I/O and memory-mapped I/O?
 
-#### Polled- (or programmed) driven I/O
+### Polled- (or programmed) driven I/O
 
 In this approach, the processor `regularly checks` the status of the `I/O devices` to determine if they are ready for data transfer. When the device is ready the `processor` initiates the data transfer. Here the processor does everything which is `not effiecient`.
 
-#### Interupt driven I/O
+### Interupt driven I/O
 
 In this approach, the `I/O devices` ar connected to the processor using `interupts`. When a device is ready it send an interupt signal to the processor, which causes the processor to save its current state and execute an IRS. This method is `more effiecient`, because the processor is only interupted when a device is ready to transfer data.
 
-#### Direct memory access (DMA)
+### Direct memory access (DMA)
 
 In this approach a `special controller` is used to transfer data directly between the `I/O devices` and the `main memory`, without involving the processor. The `processor` can initiate a `DMA transfer` by writing to a `special register`. Than it can perfor other task while data is being transfered. This is the `most efficient` way to transfer data.
 
-### Exercise
+## Exercise
 
 - When transferring blocks of data over an error-prone transmission medium, it is common to use a checksum to determine whether any data bits were lost or corrupted during transmission.
 - The checksum is typically appended to the transferred data record.
