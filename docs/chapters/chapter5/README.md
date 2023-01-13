@@ -3,13 +3,13 @@
 ### What do the abbreviations PCI and PCIe mean?
 
 - `PCI`: Peripheral Component Interconnect
-- `PCIe`: Preipheral Component Interconnect Express
+- `PCIe`: Peripheral Component Interconnect Express
 
 ### Briefly explain the following features that apply to PCI/PCIe
 
 #### Hot plugging
 
-`Hot plugging` refers to the ablility to `add or remove` devices from a computer system `without havving to pawer down` the sytem.
+`Hot plugging` refers to the ability to `add or remove` devices from a computer system `without havving to pawer down` the sytem.
 
 #### Automated configuration
 
