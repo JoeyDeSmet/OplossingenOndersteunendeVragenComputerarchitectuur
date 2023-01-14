@@ -4,7 +4,7 @@
 
 ### Soft real-time Systems
 
-These systems have some real-time constrains, but missing a deadline does not result in a catastrophic failure. 
+these systems have some real-time constrains, but missing a deadline does not result in a catastrophic failure. 
 
 **Example of Soft real-time systems**:
 
@@ -68,4 +68,33 @@ A counting semaphore is a special type of semaphore that can be used to control 
 
 This mechanism allows multiple tasks to access the same resource simultaneously, while ensuring that the resource is not over-utilized. This is useful in situations where resources are limited and need to be shared.
 
+
+
+## What is a critical section and how does one guarantee the undisturbed processing of this section?
+
+A critical section is a piece of code or a block of instructions that accesses shared resources and needs to be executed by a single task or thread at a time. To guarantee the undisturbed processing of a critical section, synchronization primitives (mutexes, semaphores, critical section objects) are used to constrol the access to shared resources and prevent concurren access. 
+
+
+
+## Name the 3 ways to expand a computer with a GPU. Why is the performance of a computer architecture is increased if the architecture is extended with a GPU?
+
+- **External GPU (eGPU)**: An external GPU is an add-on device that connects to a computer via a peripheral interface such as Thundrebolt or USB-C.
+- **Internal GPU**: An internal GPU is installend inside a computer, typaclly as a PCIe card. 
+- **Integrated GPU**: An integated GPU is build into the computer's main processor, such as Intel's HD Graphics.
+
+The performance of a computer architecture is increased if extended by a GPU for several reasons:
+
+- A GPU is designed to perform many calculations in parallel, which can signifficantly accelerate the processing of large amounts of data.
+- A GPU can offload some of the computational workload from the CPU, which can help to reduce power consumption and increase battery life for laptops.
+
+
+
+## Give some concrete examples of applications that benefit greatly from the use of a GPU.
+
+- Gaming
+- Video and image processing
+- Machine learning
+- Scientific simulations
+- Cryptocurrency mining
+- Autonomous systems
 
