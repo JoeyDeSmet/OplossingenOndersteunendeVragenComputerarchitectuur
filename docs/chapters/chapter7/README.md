@@ -39,15 +39,30 @@ A TSR program can also be terminated by the user, in which case it will be remov
 
 ## Discuss how the 32-bit virtual address $00402003 is converted into a physical address, using the Windows NT paging model, which uses CR3, a page table directory, page table and page offset.
 
-- Processor wants to execute `mov al, [ebx]`, but this doen't work because of the virtual address, a page fault get created and gets send to the OS.
-- The virtual address gets `shifted by 22 bit to the right`, leaving the 10-bit `directory offset`. Which leaves `value 1` in this example.
-- The `directory offset` is `shifted left by 2 bit` positions, and is `added` to the contents of the `processor register CR3`. The result is the `page table directory` containing the address of the relevant page table.
-- The requested virtual address is shifted right by 12 bits, and masked to leave only the `10-bit table offset`, which has `value 2` in this example.
-- The `table offset` is `shifted left by 2 bit` and `added` to the `page table address (from page table directory)`. 
+![virtual to physical memory](/img/virtual2physical.png) 
 
-TODO: DO THIS TOMOROW YOU ARE TO TIRED
+The following steps describes the translation process:
+
+1. The processor attemt to execute `mov al, [ebx]` instruction, but it fails because it is a virtual address. This generates a `page fault`, which transfers control to the OS so that it can `resolve the address translation`.
+
+2. The virtual address is `shifted right by 22 bits`. Leaving the `10-bit directory offset`. **In this example has the value 1**.
+
+3. The `directory offset` is `shifted left by 2 bits` and is added to the contents of the `processor register CR3`. The result is the address of the page table directory containing the `address` of the `relevant page table`.
+
+4. The virtual address is `shifted right by 12 bits` and than masked to leave only the `10-bit table offset`. **In this example has the vaule 2**.
+
+5. The `table offset` is `shifted left by 2 bits` and added to the page table address. The 32-bit address read from this location is the `physical address of the page frame` containing the requested data.
+
+6. The processor stores the translation in its `translation cache`.
+
+7. The processor restarts the `mov al, [ebx]` instruction, which will now succeed. The lower 12 bits if the virtual address (`frame offset`) are added to the page frame address computed in step 5 to access the requested byte. **In this example has the value 3**.
+
 
 ## Discuss how the conversion of virtual addresses to physical addresses is accelerated by using a Memory Management Unit (MMU) and a Translation Lookaside Buffer (TLB).
 
+A `Memory Management Unit (MMU)` is a hardware component that translates virtual memory addresses to physical memory addresses. The `Translation Lookaside Buffer (TLB)` is a small, fast memory cache that stores recent virtual-to-physical address translations. When a program generates a virtual memory reference, the MMU uses the page table and the TLB to translate the virtual address to a physical address. 
 
+![MMU and TLB](/img/MMU_TLB.png) 
+
+If the translation is found in the TLB, it is used to quickly access the requested memory page. If the translation is not found int the TLB, the MMU accesses the page table in main memory, which can be slower. The table entry is than loaded into the TLB for future us, accelerating future meory references to the same page.
 
