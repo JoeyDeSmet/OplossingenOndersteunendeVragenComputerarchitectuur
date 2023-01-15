@@ -6,4 +6,5 @@
 - [Chapter 6: Specialized Computing Domains](/chapters/chapter6/)
 - [Chapter 7: Processor and Memory Architectures](/chapters/chapter7/)
 - [Chapter 8: Performance-Enhancing Techniques](/chapters/chapter8/)
+- [Chapter 9: Specialized Processor Extentions](/chapters/chapter9/)
 
